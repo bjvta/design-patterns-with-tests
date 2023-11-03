@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Connection
-  attr_accessor :value
+  attr_accessor :is_connected
 
   @@instance = nil
 
@@ -9,5 +9,13 @@ class Connection
 
   def self.instance
     @@instance ||= new
+  end
+
+  def connect
+    self.is_connected = true
+  end
+
+  def disconnect
+    self.is_connected = false
   end
 end
